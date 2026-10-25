@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PAC – Polymer Additive Components | Ipari 3D nyomtatás</title>
-<meta name="description" content="Bérnyomtatás, tervezés és prototípusgyártás ipari alapanyagokból: PPS, PA12-CF, PETG-CF, Onyx. Színes 3D nyomtatás 16 színből. Üzemelteti: D82lab.">
+<meta name="description" content="Bérnyomtatás, tervezés és prototípusgyártás ipari alapanyagokból: PPS, PA12-CF, PETG-CF, Onyx. Színes 3D nyomtatás akár 8 színben. Üzemelteti: D82lab.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -241,13 +241,13 @@ footer small{color:var(--muted)}
     <div class="reveal">
       <div class="eyebrow">Ipari 3D nyomtatás</div>
       <h1>Ötlettől a <span>működő alkatrészig</span></h1>
-      <p class="lead">Bérnyomtatás, tervezés és prototípusgyártás ipari alapanyagokból. Szénszál-erősítésű, hő- és vegyszerálló alkatrészek, egyedi jigek, megfogók és burkolatok – akár 16 színben.</p>
+      <p class="lead">Bérnyomtatás, tervezés és prototípusgyártás ipari alapanyagokból. Szénszál-erősítésű, hő- és vegyszerálló alkatrészek, egyedi jigek, megfogók és burkolatok – akár 8 színben.</p>
       <div class="btns">
         <a href="#kapcsolat" class="btn btn-red">Árajánlatot kérek</a>
         <a href="#szolgaltatasok" class="btn btn-ghost">Szolgáltatások</a>
       </div>
       <div class="stats">
-        <div class="stat"><b>16</b><small>színű nyomtatás</small></div>
+        <div class="stat"><b>8</b><small>színű nyomtatás</small></div>
         <div class="stat"><b>4+</b><small>ipari alapanyag</small></div>
         <div class="stat"><b>CF</b><small>szénszál-erősítés</small></div>
       </div>
@@ -338,13 +338,14 @@ footer small{color:var(--muted)}
   <div class="wrap colors-wrap">
     <div class="reveal">
       <div class="eyebrow">Színes 3D nyomtatás</div>
-      <div class="big-num">16</div>
+      <div class="big-num">8</div>
       <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;margin:6px 0 14px">színből, egy darabban</h2>
       <p style="color:#b5bac0;margin-bottom:24px">Többszínű nyomtatás festés nélkül: feliratok, logók, jelölések, színkódolt alkatrészek, makettek és egyedi ajándéktárgyak – a szín magában az anyagban van, nem kopik le.</p>
       <a href="#kapcsolat" class="btn btn-red">Színes projektet indítok</a>
     </div>
     <div class="card reveal">
       <div class="swatches" id="swatches"></div>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:18px;text-align:center">Választható színpaletta – egy nyomaton belül akár 8 szín kombinálható.</p>
     </div>
   </div>
 </section>
@@ -450,7 +451,7 @@ footer small{color:var(--muted)}
               <option>Bérnyomtatás</option>
               <option>Tervezés</option>
               <option>Prototípusgyártás</option>
-              <option>Színes nyomtatás (16 szín)</option>
+              <option>Színes nyomtatás (8 szín)</option>
               <option>Burkolat / jig / megfogó</option>
               <option>Flexibilis alkatrész</option>
               <option>Egyéb</option>
@@ -491,7 +492,7 @@ footer small{color:var(--muted)}
 </footer>
 
 <script>
-// 16 színminta
+// színpaletta
 const colors=[["Fehér","#f5f5f5"],["Fekete","#1a1a1a"],["Szürke","#8a8f94"],["Ezüst","#c0c4c8"],["Piros","#e02020"],["Narancs","#f26a10"],["Sárga","#ffd60a"],["Arany","#c9a227"],["Lime","#9bdc28"],["Zöld","#1f9d55"],["Türkiz","#1ecbd6"],["Kék","#2563eb"],["Sötétkék","#1e2a78"],["Lila","#7c3aed"],["Pink","#ec4899"],["Barna","#7a4a2a"]];
 const sw=document.getElementById('swatches');
 colors.forEach(([n,c])=>{const d=document.createElement('div');d.className='sw';d.title=n;d.style.background=c;d.style.color=c;sw.appendChild(d)});
