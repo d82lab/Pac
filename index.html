@@ -183,6 +183,27 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .d82 span.l{font-weight:300}
 footer small{color:var(--muted)}
 
+/* JOGI ABLAKOK */
+.legal-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px}
+.legal-links a{color:var(--muted);font-size:.85rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.legal-links a:hover{color:#fff}
+dialog.legal{max-width:760px;width:calc(100% - 32px);max-height:86vh;margin:auto;padding:0;border:1px solid var(--line);border-radius:16px;background:#121314;color:var(--white)}
+dialog.legal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(4px)}
+dialog.legal .lg-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:#121314;border-bottom:1px solid var(--line)}
+dialog.legal .lg-head h2{font-size:1.3rem}
+dialog.legal .lg-close{background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1}
+dialog.legal .lg-body{padding:22px 24px 30px;font-size:.92rem;color:#c9cdd1}
+dialog.legal h3{color:#fff;font-size:1rem;margin:22px 0 8px}
+dialog.legal p,dialog.legal li{margin-bottom:6px}
+dialog.legal ul{padding-left:20px}
+dialog.legal dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px}
+dialog.legal dt{color:var(--muted)}
+.todo{background:rgba(255,200,0,.15);color:#ffd60a;border:1px dashed rgba(255,214,10,.5);border-radius:4px;padding:0 5px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:#c9cdd1;margin-bottom:18px}
+.consent input{width:18px;height:18px;margin:2px 0 0;flex-shrink:0;accent-color:var(--red)}
+.consent a{text-decoration:underline;cursor:pointer}
+@media(max-width:560px){dialog.legal dl{grid-template-columns:1fr}dialog.legal dt{margin-top:8px}}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -470,6 +491,7 @@ footer small{color:var(--muted)}
         </select>
         <label for="message">Üzenet *</label>
         <textarea id="message" name="Üzenet" required placeholder="Méretek, darabszám, felhasználás, határidő, fájl link..."></textarea>
+        <label class="consent"><input type="checkbox" id="consent" required><span>Elolvastam és elfogadom az <a data-open="privacy">adatkezelési tájékoztatót</a>. *</span></label>
         <button type="submit" class="btn btn-red" id="sendBtn">Üzenet küldése</button>
         <div class="msg" id="formMsg"></div>
       </form>
@@ -482,14 +504,70 @@ footer small{color:var(--muted)}
     <div>
       <div class="nav-logo" style="margin-bottom:6px">PAC</div>
       <small>Polymer Additive Components · Ipari 3D nyomtatás</small>
+      <div class="legal-links"><a data-open="impresszum">Impresszum</a><a data-open="privacy">Adatkezelési tájékoztató</a></div>
     </div>
     <div style="text-align:right">
-      <small>Az oldalt üzemelteti</small><br>
       <span class="d82"><span class="dot"></span><b>D82</b><span class="l">lab</span></span><br>
       <small>© <span id="year"></span> Minden jog fenntartva.</small>
     </div>
   </div>
 </footer>
+
+<dialog class="legal" id="impresszum">
+  <div class="lg-head"><h2>Impresszum</h2><button class="lg-close" aria-label="Bezárás">×</button></div>
+  <div class="lg-body">
+    <h3>Szolgáltató</h3>
+    <dl>
+      <dt>Név</dt><dd>Dudik Zsolt egyéni vállalkozó</dd>
+      <dt>Vállalkozás neve</dt><dd>Dudik Zsolt e.v.</dd>
+      <dt>Székhely</dt><dd>9022 Győr, Bajcsy-Zsilinszky út 59. fszt.</dd>
+      <dt>E-mail</dt><dd><a href="mailto:info.d82lab@gmail.com">info.d82lab@gmail.com</a></dd>
+      <dt>Telefon</dt><dd><a href="tel:+36306316740">+36 30 631 6740</a></dd>
+      <dt>Nyilvántartási szám</dt><dd>50297887</dd>
+      <dt>Adószám</dt><dd>67482164-2-28</dd>
+      <dt>Nyilvántartó hatóság</dt><dd>Belügyminisztérium – Egyéni vállalkozók nyilvántartása</dd>
+    </dl>
+    <h3>Tárhelyszolgáltató</h3>
+    <dl>
+      <dt>Név</dt><dd>Vercel Inc.</dd>
+      <dt>Székhely</dt><dd>440 N Barranca Avenue #4133, Covina, CA 91723, Amerikai Egyesült Államok</dd>
+      <dt>Elérhetőség</dt><dd>privacy@vercel.com · vercel.com</dd>
+    </dl>
+    <h3>Panaszkezelés</h3>
+    <p>Panaszát a fenti e-mail címen jelezheti. A panaszra legkésőbb 30 napon belül írásban, érdemben válaszolunk.</p>
+    <p>Fogyasztói jogvita esetén a székhely szerint illetékes békéltető testülethez fordulhat:<br>Győr-Moson-Sopron Vármegyei Békéltető Testület<br>9021 Győr, Szent István út 10/a · Tel.: (96) 520-217 · bekelteto.testulet@gymsmkik.hu</p>
+    <h3>Weboldal</h3>
+    <p>A weboldalt a .D82lab készítette. A weboldalon keresztül nyújtott szolgáltatásokért a fent megnevezett szolgáltató felel.</p>
+  </div>
+</dialog>
+
+<dialog class="legal" id="privacy">
+  <div class="lg-head"><h2>Adatkezelési tájékoztató</h2><button class="lg-close" aria-label="Bezárás">×</button></div>
+  <div class="lg-body">
+    <h3>1. Adatkezelő</h3>
+    <p>Dudik Zsolt e.v. (egyéni vállalkozó), székhely: 9022 Győr, Bajcsy-Zsilinszky út 59. fszt., adószám: 67482164-2-28, telefon: +36 30 631 6740, e-mail: <a href="mailto:info.d82lab@gmail.com">info.d82lab@gmail.com</a></p>
+    <h3>2. Kezelt adatok és az adatkezelés célja</h3>
+    <p>A kapcsolati űrlap kitöltésekor megadott adatokat (név, e-mail cím, telefonszám, a választott szolgáltatás és alapanyag, az üzenet szövege) kizárólag az ajánlatkérés megválaszolására, árajánlat készítésére és a kapcsolattartásra használjuk.</p>
+    <h3>3. Az adatkezelés jogalapja</h3>
+    <p>Az Ön hozzájárulása (GDPR 6. cikk (1) a) pont), illetve a szerződés megkötését megelőző lépések megtétele az Ön kérésére (GDPR 6. cikk (1) b) pont).</p>
+    <h3>4. Megőrzési idő</h3>
+    <p>Az adatokat az ajánlatkérés lezárását követő legfeljebb 1 évig őrizzük meg, illetve szerződéskötés esetén a jogszabályban előírt ideig.</p>
+    <h3>5. Adatfeldolgozók</h3>
+    <ul>
+      <li><b>Űrlapkezelés:</b> FormSubmit (formsubmit.co) – az űrlap tartalmának továbbítása e-mailben.</li>
+      <li><b>Tárhely:</b> Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA – a weboldal kiszolgálása.</li>
+      <li><b>E-mail:</b> Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Írország – a beérkező üzenetek tárolása.</li>
+    </ul>
+    <p>Az adatfeldolgozók egy része az Európai Unión kívül (USA) is tárolhat adatot; ilyen esetben a továbbítás az EU–USA adatvédelmi keretrendszer vagy általános szerződési feltételek alapján történik.</p>
+    <h3>6. Sütik</h3>
+    <p>A weboldal nem használ követő vagy marketing célú sütiket.</p>
+    <h3>7. Az Ön jogai</h3>
+    <p>Kérhet tájékoztatást a kezelt adatairól, kérheti azok helyesbítését, törlését vagy kezelésük korlátozását, tiltakozhat az adatkezelés ellen, és bármikor visszavonhatja hozzájárulását a fenti e-mail címen.</p>
+    <h3>8. Jogorvoslat</h3>
+    <p>Panaszával a Nemzeti Adatvédelmi és Információszabadság Hatósághoz fordulhat (NAIH, 1055 Budapest, Falk Miksa utca 9–11., ugyfelszolgalat@naih.hu, www.naih.hu), illetve bírósághoz is fordulhat.</p>
+    <p style="margin-top:20px;color:var(--muted)">Hatályos: 2026. október 26.</p>
+  </div>
+</dialog>
 
 <script>
 // színpaletta
@@ -508,6 +586,10 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 document.getElementById('year').textContent=new Date().getFullYear();
 
+// impresszum / adatkezelési tájékoztató
+document.querySelectorAll('[data-open]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.open).showModal()}));
+document.querySelectorAll('dialog.legal').forEach(d=>{d.querySelector('.lg-close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d)d.close()})});
+
 // referencia galéria nagyítás
 const lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img');
 document.querySelectorAll('.ref:not(.empty)').forEach(f=>f.onclick=()=>{const i=f.querySelector('img');lbImg.src=i.src;lbImg.alt=i.alt;lb.classList.add('open')});
@@ -522,6 +604,7 @@ form.addEventListener('submit',async e=>{
   msg.className='msg';
   const name=form.querySelector('#name').value.trim(),email=form.querySelector('#email').value.trim(),text=form.querySelector('#message').value.trim();
   if(!name||!text||!/^\S+@\S+\.\S+$/.test(email)){msg.textContent='Kérjük, töltsd ki a nevet, egy érvényes e-mail címet és az üzenetet.';msg.className='msg err';return}
+  if(!form.querySelector('#consent').checked){msg.textContent='Kérjük, fogadd el az adatkezelési tájékoztatót.';msg.className='msg err';return}
   if(form._honey.value)return;
   btn.disabled=true;btn.textContent='Küldés...';
   const data=Object.fromEntries(new FormData(form));
